@@ -1,0 +1,40 @@
+[package]
+name = "srp6-test"
+version = "0.1.0"
+edition = "2024"
+default-run = "interactive"
+
+[[bin]]
+name = "interactive"
+path = "src/main.rs"
+
+[[bin]]
+name = "sign-on"
+path = "src/sign-on.rs"
+
+[[bin]]
+name = "auth"
+path = "src/auth.rs"
+
+[[bin]]
+name = "auth-proof"
+path = "src/auth-proof.rs"
+
+[[bin]]
+name = "client-proof-gen"
+path = "src/client-proof-generator.rs"
+
+[[bin]]
+name = "client-strong-proof"
+path = "src/client-strong-proof.rs"
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+opt-level = "z"
+strip = "symbols"
+panic = "abort"
+
+[dependencies]
+base64 = "0.22.1"
+srp6 = "1.0.0-beta.1"
